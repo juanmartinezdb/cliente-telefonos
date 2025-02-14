@@ -3,9 +3,10 @@ import { CartService } from '../cart.service';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrl: './cart.component.css'
+    selector: 'app-cart',
+    templateUrl: './cart.component.html',
+    styleUrl: './cart.component.css',
+    standalone: false
 })
 export class CartComponent {
 
