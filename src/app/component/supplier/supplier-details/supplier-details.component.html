@@ -1,0 +1,13 @@
+<h2>Supplier</h2>
+  <div>
+    <h3>{{ supplier?.nombre }}</h3>
+@if (supplier?.pais) {
+ <p> Country: {{supplier?.pais}} </p>
+}
+<p>Phones on the catalog:</p>
+@for (phone of phones; track $index) {
+<h5><a [routerLink]="['/products', phone.id]">{{phone.name}}</a></h5>
+}
+<hr>
+</div>
+

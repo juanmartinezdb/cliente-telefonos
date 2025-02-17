@@ -1,0 +1,21 @@
+[
+      {
+        "id": 1,
+        "nombre": "Apple",
+        "pais": "Estados Unidos",
+        "sistema_operativo": "iOS"
+      },
+      {
+        "id": 2,
+        "nombre": "Samsung",
+        "pais": "Corea del Sur",
+        "sistema_operativo": "Android"
+      },
+      {
+        "id": 3,
+        "nombre": "Google",
+        "pais": "Estados Unidos",
+        "sistema_operativo": "Android"
+      }
+    ]
+

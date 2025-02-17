@@ -1,0 +1,12 @@
+<h2>Suppliers</h2>
+@for (sup of suppliers; track $index) {
+  <div>
+    <h3>
+      <a [title]="sup.nombre"
+      [routerLink]="['/suppliers', sup.id]">
+      {{ sup.nombre }}
+    </a>
+  </h3>
+<hr>
+</div>
+}
