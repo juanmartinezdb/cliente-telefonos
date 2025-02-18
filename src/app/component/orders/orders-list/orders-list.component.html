@@ -1,0 +1,12 @@
+<h2>Orders</h2>
+@for (ord of orders; track $index) {
+  <div>
+    <h3>
+      <a [title]="ord.id"
+      [routerLink]="['/orders', ord.id]">
+      {{ord.id}}-{{ ord.client }}
+    </a>
+  </h3>
+<hr>
+</div>
+}

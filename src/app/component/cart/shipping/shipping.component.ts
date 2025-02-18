@@ -1,7 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CartService } from '../../service/cart.service';
+
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../../service/cart.service';
+import { Shipping } from '../../../model/shipping';
 
 @Component({
   selector: 'app-shipping',
@@ -11,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ShippingComponent implements OnInit{
 cartService = inject(CartService);
-  shippingCosts!: Observable <{type: string, price: number}[]>;
+  shippingCosts!: Observable <Shipping[]>;
 
   ngOnInit(): void {
     this.shippingCosts = this.cartService.getShippingPrices();

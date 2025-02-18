@@ -1,17 +1,30 @@
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
   <div>
-    <label for="name">
-      Name
-    </label>
+    <label for="name"> Name </label>
     <input id="name" type="text" formControlName="name">
+    @if (checkoutForm.get('name')?.touched && checkoutForm.get('name')?.invalid) {
+        <p class="text-danger">Introduce a name</p>
+    }
   </div>
 
   <div>
-    <label for="address">
-      Address
-    </label>
+    <label for="address">Address </label>
     <input id="address" type="text" formControlName="address">
+    @if (checkoutForm.get('address')?.touched && checkoutForm.get('address')?.invalid) {
+      <p class="text-danger">Introduce an adress</p>
+  }
   </div>
-  <button class="button" type="submit">Purchase</button>
+  <div>
+    <label for="shipping"> Shipping Method </label>
+    <select name="shipping" id="shipping" class="me-3" formControlName="shippingMethod">
+@for (ship of shippingCosts| async; track $index) {
+  <option value="{{ship.type}}">{{ship.type}}</option>
+}
+    </select>
+    @if (checkoutForm.get('shippingMethod')?.touched && checkoutForm.get('shippingMethod')?.invalid) {
+      <p class="text-danger">Introduce a shipping Method</p>
+  }
+  </div>
+  <button class="button mt-3" type="submit">Purchase</button>
 
 </form>

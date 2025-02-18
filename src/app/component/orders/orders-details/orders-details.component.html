@@ -1,0 +1,16 @@
+<h2>Orders</h2>
+  <div>
+    <h3>{{ order?.id }}</h3>
+ <p> Client: {{order?.client}} </p>
+ <p>Adress: {{order?.adress}}</p>
+ <p>Shipping Method: {{order?.shippingMethod}}</p>
+<p>Products:</p>
+<ul>
+
+  @for (product of products; track $index) {
+    <li>{{product.name}}</li>
+  }
+</ul>
+<hr>
+</div>
+
