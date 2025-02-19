@@ -1,10 +1,11 @@
 import { Supplier } from './../../../model/supplier';
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { products } from '../../../model/products';
+import { Product } from '../../../model/products';
 import { ProductAlertsComponent } from '../product-alerts/product-alerts.component';
 import { SupplierService } from '../../../service/supplier.service';
 import { CommonModule } from '@angular/common';
+import { ProductService } from '../../../service/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -13,12 +14,17 @@ import { CommonModule } from '@angular/common';
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent implements OnInit {
-  products = [...products]; //??
+  products : Product[] = [];
   supService = inject(SupplierService);
+  productService = inject(ProductService);
   suppliers: Supplier [] = [];
 
 ngOnInit(): void {
     this.supService.supplier$.subscribe (s => this.suppliers = s);
+    this.productService.products$.subscribe(p => this.products= p);
+    console.log(this.products);
+
+
 }
 
 supplierById(id: Number){

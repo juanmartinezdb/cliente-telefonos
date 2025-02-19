@@ -3,6 +3,7 @@ import { Supplier } from './../../../model/supplier';
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SupplierService } from '../../../service/supplier.service';
+import { ProductService } from '../../../service/product.service';
 
 @Component({
   selector: 'app-supplier-details',
@@ -14,6 +15,7 @@ export class SupplierDetailsComponent implements OnInit {
 supService = inject(SupplierService);
   supplier: Supplier |null = null;
 route = inject(ActivatedRoute);
+productService = inject(ProductService);
 phones: Product[] = [];
 
 ngOnInit(): void {
@@ -25,7 +27,9 @@ this.chargeSuppliers(id);
 }
 
 chargePhones(id: number) {
-  this.phones = products.filter(p=> p.supplier== id );
+  this.productService.products$.subscribe (products => {
+    this.phones = products.filter(p=> p.supplier== id );
+  })
   console.log("telefonos",this.phones);
 
 }

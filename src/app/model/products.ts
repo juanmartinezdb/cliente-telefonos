@@ -29,4 +29,28 @@ export const products = [
     price: 299,
     description: ''
   }
-];
+]
+export const productos = [
+
+  {
+    product_id: 1,
+    supplier: 2,
+    product_name: 'Telefono Nokia',
+    cost: 50,
+    details: 'Duradero'
+  },
+  {
+    product_id: 2,
+    supplier: 2,
+    product_name: 'Motorola',
+    cost: 79,
+    details: 'de estos ya hay pocos'
+  },
+  {
+    product_id: 3,
+    supplier: 2,
+    product_name: 'Bq Aquaris',
+    cost: 129,
+    details: 'De estos ya no los hacen tampoco'
+  }
+  ]
