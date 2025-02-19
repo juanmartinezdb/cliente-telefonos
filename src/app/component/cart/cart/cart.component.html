@@ -1,11 +1,15 @@
 <h3>Cart</h3>
+@if (items.length>0) {
 
-<p><a [routerLink]="['/shipping']">Shipping Prices</a></p>
+  <p><a [routerLink]="['/shipping']">Shipping Prices</a></p>
 
-@for (item of items; track $index) {
-  <div class="cart-item">
-    <span>{{ item.name }}</span>
-    <span>{{ item.price | currency }}</span>
-  </div>
+  @for (item of items; track $index) {
+    <div class="cart-item">
+      <span>{{ item.name }}</span>
+      <span>{{ item.price | currency }}</span>
+    </div>
+  }
+} @else {
+  <h1>The cart is Empty</h1>
 }
 <app-cart-form />

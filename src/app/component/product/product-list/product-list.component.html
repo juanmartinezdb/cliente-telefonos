@@ -1,29 +1,34 @@
+@if(products.length>0){
 <h2>Products</h2>
-@for (product of products; track $index) {
-  <div>
-    <h3>
-      <a [title]="product.name +' detalles'"
-      [routerLink]="['/products', product.id]">
-      {{ product.name }}
+
+  @for (product of products; track $index) {
+    <div>
+      <h3>
+        <a [title]="product.name +' detalles'"
+        [routerLink]="['/products', product.id]">
+        {{ product.name }}
+      </a>
+    </h3>
+    <h4>
+      <a [title]="this.supplierById(product.supplier)?.nombre"
+      [routerLink]="['/suppliers', product?.supplier]">
+      {{ this.supplierById(product.supplier)?.nombre}}
     </a>
-  </h3>
-  <h4>
-    <a [title]="this.supplierById(product.supplier)?.nombre"
-    [routerLink]="['/suppliers', product?.supplier]">
-    {{ this.supplierById(product.supplier)?.nombre}}
-  </a>
-</h4>
+  </h4>
 
   @if (product.description) {
 <p>Descripcion: {{product.description}}</p>
-  }
-@if (product.price) {
- <p> price: {{product.price}} </p>
 }
-  <button type="button" (click)="share()">Compartir</button>
+@if (product.price) {
+  <p> price: {{product.price}} </p>
+}
+<button type="button" (click)="share()">Compartir</button>
 
-  <app-product-alerts [product]="product" (notificacion)="onNotify()">
+<app-product-alerts [product]="product" (notificacion)="onNotify()">
 </app-product-alerts>
 <!-- La entrada de un output de una clase hija, entra con un () -->
 </div>
+}
+} @else {
+  <h1>No products available</h1>
 }

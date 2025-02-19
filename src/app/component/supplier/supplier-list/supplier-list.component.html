@@ -1,5 +1,7 @@
-<h2>Suppliers</h2>
-@for (sup of suppliers; track $index) {
+@if (suppliers.length>0) {
+
+  <h2>Suppliers</h2>
+  @for (sup of suppliers; track $index) {
   <div>
     <h3>
       <a [title]="sup.nombre"
@@ -7,6 +9,9 @@
       {{ sup.nombre }}
     </a>
   </h3>
-<hr>
+  <hr>
 </div>
+}
+} @else {
+  <h1>No Suppliers Found</h1>
 }
